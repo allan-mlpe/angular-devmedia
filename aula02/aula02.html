@@ -1,0 +1,16 @@
+<!-- Como não estamos utilizando um arquivo externo, podemos usar só 'ng-app' -->
+<html ng-app>
+    <head>
+        <meta charset="utf-8"/>
+        <title>{{texto}}</title>
+        <script src="../js/angular.min.js"></script>
+    </head>
+
+    <body>
+        <!-- usamos 'ng-model' para setar o valor do campo input à variável 'texto' -->
+        <input type="text" ng-model="texto" /> 
+        <p> O que eu estou digitando é: 
+            {{ texto }}
+        </p>
+    </body>
+</html>
