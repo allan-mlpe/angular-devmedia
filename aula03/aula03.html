@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Introdução ao JavaScript</title>
+
+        <script>
+            //alert("Hello World!");
+
+            //variável
+            var total = 1 + 2;
+            console.log(total); //imprimindo no console do browser
+
+            //objeto js
+            var pessoa = {
+                nome : "jão",
+                idade : 20,
+                estado : "PE",
+                status : true
+            };
+
+            //declarando um array
+            var pessoas = [];
+
+            //adicionando o objeto pessoa no array pessoas
+            pessoas.push(pessoa);
+
+            //estrutura condicional
+            if(pessoa.status == true) {
+                console.log("O usuário " + pessoa.nome + " está ativo!");
+            } else {    
+                console.log("O usuário " + pessoa.nome + " está ativo!");
+            }
+
+            //estrutura de loop (for)
+            for(var i = 0; i < 10; i++) {
+                document.write("<p>" + i + "</p>"); //imprimindo no document
+            }
+
+            //declarando uma função
+            function loadInputFieldValue() {
+                document.getElementById("inputField").value = 3;
+            }
+        </script>
+    </head>
+
+    <body onload="loadInputFieldValue()">
+        <input id="inputField" type="text" value="">
+    </body>
+</html>
