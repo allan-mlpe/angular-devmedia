@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>Controllers</title>
+    </head>
+
+    <body>
+
+        <!-- definimos com ng-controller o controller responsável por gerenciar o conteúdo da div -->
+        <div ng-controller="aula06Controller">
+            <!-- não precisamos referenciar o $scope -->
+            {{ nome }}
+
+            <p>
+                <!-- 
+                    passamos a função definida no controller para
+                    a diretiva ng-click, que executará a função
+                    quando acontecer um evento de clique
+                -->
+                <button ng-click="olaMundo('Jão')">Clique-me!</button>
+            </p>
+        </div>
+        
+        <script src="../js/angular.min.js"></script>
+        <script src="js/app.module.js"></script>
+
+        <!-- controllers -->
+        <script src="js/aula06Controller.js"></script>
+    </body>
+</html>
