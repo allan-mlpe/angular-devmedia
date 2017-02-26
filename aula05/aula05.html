@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Módulos AngularJS</title> 
+    </head>
+    <body>
+        <!-- 
+            na diretiva ng-app inserimos o nome do módulo.
+            as funcionalidades do módulo só estarão disponíveis internamente
+            nas tags onde o módulo foi declarado com o ng-app
+         -->
+        <div ng-app="appSaudacao">
+            <!--
+                - definimos uma string que será passada para o filtro por meio do pipe (|)
+                - chamamos o filtro ola passando o parâmetro requerido ("nome")
+             -->
+            {{ "Jão" | ola }}
+        </div>
+
+        <script src="../js/angular.min.js"></script>
+        <script src="js/aula05.appSaudacao.module.js"></script>
+    </body>
+</html>
