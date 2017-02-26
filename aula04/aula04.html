@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- o ng-init serve para inicializar variáveis na memória -->
+<html ng-app ng-init="valor1 = 5; valor2 = 10; pessoa = {nome : 'Jão'}">
+    <head>
+        <meta charset="utf-8"/>
+        <title>ngBind</title>
+        <script src="../js/angular.min.js"></script>
+    </head>
+
+    <body>
+        <!-- 
+            o ng-bind serve para atribuir o valor de uma variável à uma tag, por exemplo. 
+            neste caso, o conteúdo renderizado dentro da tag h1 será o valor da variável valor1
+        -->
+        <h1 ng-bind="valor1"></h1>
+
+        <!-- podemos fazer também operações -->
+        <h1 ng-bind="valor1 * valor2"></h1>
+
+        <!--
+            as chaves duplas servem como um atalho para o ng-bind.
+            elas podem aparecer em seu valor literal, isto é, "{{ conteúdo_do_ng-bing }}"
+            enquanto a lib do angular não é carregada. Por isso, é aconselhável usar o ng-bind.
+         -->
+        <h1>{{ valor2 }}</h1>
+        
+        <h1>
+            <!-- nós podemos também criar tags auxiliares que não existem no HTML para usar o ng-bind -->
+            Bem vindo, <texto ng-bind="pessoa.nome"></texto>
+        </h1>
+
+        <!-- 
+            o ng-model associa o valor da variável passada como parâmetro ao conteúdo da tag.
+            neste caso, como é um input, a variável pessoa.nome receberá dinâmicamente o valor
+            que for sendo digitado pelo usuário no campo input.
+        -->
+        <input type="text" ng-model="pessoa.nome" />
+        <input type="number" ng-model="valor1" />
+        <input type="number" ng-model="valor2" />
+    </body>
+</html>
