@@ -23,3 +23,6 @@ Curso de AngularJS da Devmedia
 - $scope.
 - ng-controller.
 - ng-click.
+
+<h4>Aula 07 - Loops usando ngRepeat</h4>
+- Iterando sobre arrays com ng-repeat.
