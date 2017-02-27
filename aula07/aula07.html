@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>ngRepeat</title>
+    </head>
+    
+    <body ng-controller="aula07Controller">
+        <ul>
+            <li ng-repeat="nome in nomes" ng-bind="nome"></li>
+        </ul>
+
+        <input type="text" id="nomePessoa" ng-model="newPessoa.nome"/>
+        <input type="number" id="idadePessoa" ng-model="newPessoa.idade" />
+        <input type="checkbox" ng-model="newPessoa.status">Ativo
+        <button ng-click="adicionarPessoa()">Adicionar</button>
+        
+        <ul>
+            <li ng-repeat="pessoa in pessoas" ng-bind="pessoa.nome + ' - ' + pessoa.idade"></li>
+        </ul>
+
+        
+
+        <script src="../js/angular.min.js"></script>
+        <script src="js/app.module.js"></script>
+
+        <!-- controllers -->
+        <script src="js/aula07Controller.js"></script>    
+    </body>
+</html>
