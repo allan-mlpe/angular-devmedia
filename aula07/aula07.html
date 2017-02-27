@@ -7,6 +7,12 @@
     
     <body ng-controller="aula07Controller">
         <ul>
+            <!-- 
+                para usar ng-repeat definimos uma variável genérica
+                que representará cada elemento do array que estamos iterando.
+                Neste casso definimos a variável genérica 'nome' que assumirá
+                o valor de um elemento do array nomes a cada iteração.
+            -->
             <li ng-repeat="nome in nomes" ng-bind="nome"></li>
         </ul>
 

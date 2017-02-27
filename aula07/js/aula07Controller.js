@@ -14,6 +14,9 @@ app.controller('aula07Controller', function($scope) {
         {nome: "Maria", idade: 21, status: true}
     );
 
+    /**
+     * Adiciona uma nova pessoa no array de pessoas.
+     */
     $scope.adicionarPessoa = function() {
         //adicionamos a nova pessoa no array
         $scope.pessoas.push($scope.newPessoa);
