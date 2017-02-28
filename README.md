@@ -26,3 +26,11 @@ Curso de AngularJS da Devmedia
 
 <h4>Aula 07 - Loops usando ngRepeat</h4>
 - Iterando sobre arrays com ng-repeat.
+
+<h4>Aula 08 - Trabalhando com formulários</h4>
+- ng-selected.
+- ng-show.
+- ng-submit.
+- Erros e estados de formulários e campos de formulário.
+- $setPristine().
+- $setUntouched().
