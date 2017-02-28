@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>ngRoute</title>
+        
+        <base href="/angular-devmedia/aula11/" />
+    </head>
+    <body>
+        <div ng-controller="aula11Controller">
+            <ul>
+                <li>
+                    <a href="aula11.html">Inicial</a>
+                    <a href="Pagina1">Página 1</a>
+                    <a href="Pagina2/1">Página 2</a>
+                </li>
+            </ul>
+
+            <p>Cabeçalho</p>
+            <!-- 
+                a diretiva ng-view vai ser responsável por
+                injetar o conteúdo das páginas criadas
+             -->
+            <div ng-view>
+
+            </div>
+
+            <p>Rodapé</p>
+        </div>
+        
+        <script src="../js/angular.min.js"></script>
+        <script src="../js/angular-route.min.js"></script>
+        <script src="js/app.module.js"></script>
+        <script src="js/aula11.routes.js"></script>
+        <script src="js/aula11Controllers.js"></script>
+    </body>
+</html>
