@@ -34,3 +34,8 @@ Curso de AngularJS da Devmedia
 - Erros e estados de formulários e campos de formulário.
 - $setPristine().
 - $setUntouched().
+
+<h4>Aula 09 - Service e Factory</h4>
+- Declarando serviços com angular.service.
+- Criando factories com angular.factory.
+- Injetando dependências nos controllers.
