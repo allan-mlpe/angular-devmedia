@@ -39,3 +39,8 @@ Curso de AngularJS da Devmedia
 - Declarando serviços com angular.service.
 - Criando factories com angular.factory.
 - Injetando dependências nos controllers.
+
+<h4>Aula 10 - Filter</h4>
+- Utilizando os filtros do AngularJS: json, uppercase.
+- Criando filtros customizados com angular.filter.
+- 2 formas de injetar filtros nos controllers.
