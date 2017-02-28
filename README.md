@@ -46,9 +46,16 @@ Curso de AngularJS da Devmedia
 - 2 formas de injetar filtros nos controllers.
 
 <h4>Aula 11 - ngRoute</h4>
-- Adicionando os módulos do ng-route: angular-route.min.js e angular-route.min.js.map
+- Adicionando os módulos do ng-route: angular-route.min.js e angular-route.min.js.map.
 - $route, $routeParams e $location.
-- A tag base do HTML.
+- A tag 'base' do HTML.
 - ng-view e templates.
 - Configurando as rotas da aplicação com $routeProvider e $locationProvider.
 - Passando parâmetros para as rotas.
+
+<h4>Aula 12 - Diretivas básicas</h4>
+- ng-show e ng-hide.
+- ngSanitize: habilitando a injeção de conteúdo HTML com o ng-bind-html.
+- ng-class.
+- ng-cloak.
+- ng-src.
