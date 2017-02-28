@@ -9,7 +9,7 @@
         <div ng-controller="aula10Controller">
 
             <!-- sintaxe para usar o filtro: parâmetro(s) | nomeDoFiltro  -->
-            {{ pessoa.nome | saudacao }}
+            {{ (pessoa.nome | saudacao) | uppercase }}
         </div>
 
         <div ng-controller="aula10Controller2">
@@ -18,7 +18,7 @@
         
         <script src="../js/angular.min.js"></script>
         <script src="js/app.module.js"></script>
-        <!-- -->
+        <!-- filtros -->
         <script src="js/aula10Filter.js"></script>
 
         <!-- controllers -->
