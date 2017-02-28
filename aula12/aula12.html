@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>Diretivas básicas</title>
+        <link rel="stylesheet" href="css/aula12.style.css" />
+
+        <!-- é recomendável que a lib do angular seja declarada no head para prevenir problemas de cloak -->
+        <script src="../js/angular.min.js"></script>
+    </head>
+
+    <body>
+
+        <div ng-controller="aula12Controller">
+            <h1>ngShow e ngHider</h1>
+
+            <!-- ng-show mostra o elemento quando a expressão for verdadeira -->
+            <div ng-show="mostrar">
+                Este bloco é exibido quando a variável mostrar = true.
+            </div>
+
+            <!-- ng-hide esconde o elemento quando a expressão for verdadeira -->
+            <div ng-hide="mostrar">
+                Este bloco é exibido quando a variável mostrar = false
+            </div>
+
+            <!-- podemos usar também expressões booleanas -->
+            <div ng-show="!mostrar">
+                Este bloco é exibido quando a variável mostrar = !true.
+            </div>
+
+            <div>
+                Mostrar: <input type="checkbox" ng-model="mostrar" >
+                <pre>
+                    Valor de mostrar = {{ mostrar }}
+                </pre>
+            </div>
+
+            <hr />
+
+            <!-- 
+                ng-bind-html serve para que possamos adicionar código HTML
+                na nossa aplicação AngularJS. É necessário que a dependência
+                ngSanitize esteja injetada no módulo!
+            -->
+            <div ng-bind-html="variavelHTML">
+    
+            </div>
+
+            <hr />
+
+            <h1>ngClass</h1>
+
+            <button ng-click="minhaClasse='classNgClass'">Add class</button>
+            <button ng-click="minhaClasse=''">Remove class</button>
+
+            <div ng-class="minhaClasse">texto texto texto div div div</div>
+
+            <hr />
+
+            <h1>ngCloak</h1>
+            <p>Impede que variáveis sejam exibidas no browser.</p>
+
+            <p ng-cloak>
+                {{ variavelCloak }}
+            </p>
+
+            <hr />
+
+            <h1>ngSrc</h1>
+
+            <button ng-click="foto='foto1.png'">Foto 1</button>
+            <button ng-click="foto='foto2.png'">Foto 2</button>
+            <div>
+                <!-- ng-src nos permite adicionar paths de imagens de maneira mais segura -->
+                <img ng-src="../img/{{foto}}" width="300px"/>
+            </div>
+        </div>
+
+        
+        <!-- nos permite injetar HTML dentro das nossas páginas. É preciso injetá-lo no módulo -->
+        <script src="../js/angular-sanitize.min.js"></script>
+    
+        <script src="js/app.module.js"></script>
+        <!-- controllers -->
+        <script src="js/aula12Controller.js"></script>
+    </body>
+</html>

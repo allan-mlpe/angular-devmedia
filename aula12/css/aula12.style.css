@@ -1,0 +1,11 @@
+.classNgClass {
+    font-size: 50px;
+    color: blue;
+}
+
+/*
+    Adicionamos esse trecho de código para prevenir problemas de cloak
+*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
