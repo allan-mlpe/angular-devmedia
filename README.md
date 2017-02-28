@@ -44,3 +44,11 @@ Curso de AngularJS da Devmedia
 - Utilizando os filtros do AngularJS: json, uppercase.
 - Criando filtros customizados com angular.filter.
 - 2 formas de injetar filtros nos controllers.
+
+<h4>Aula 11 - ngRoute</h4>
+- Adicionando os módulos do ng-route: angular-route.min.js e angular-route.min.js.map
+- $route, $routeParams e $location.
+- A tag base do HTML.
+- ng-view e templates.
+- Configurando as rotas da aplicação com $routeProvider e $locationProvider.
+- Passando parâmetros para as rotas.
