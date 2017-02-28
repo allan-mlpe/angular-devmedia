@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>Fórmulários</title>
+        <link rel="stylesheet" href="css/aula08.style.css">
+    </head>
+    <body ng-controller="aula08Controller">
+        <!-- o parâmeto novalidate serve para dizer que o HTML não deve validar nosso formulário -->
+        <!-- o ng-submit define o que será feito quando o formulário for submetido -->
+        <form novalidate name="frm" ng-submit="salvarPessoa(pessoa)">
+            <p>
+                Nome: <input type="text" ng-model="pessoa.nome" name="txtNome" required />
+
+                <!--
+                    O ng-show exibe a tag que está associado apenas se a condição
+                    especificada for verdadeira.
+                 -->
+                <div ng-show="frm.$submitted || frm.txtNome.$touched">
+                    <div class="errorMsg" ng-show="frm.txtNome.$error.required">
+                        O campo nome deve ser preenchido.
+                    </div>
+                </div>
+            </p>
+
+            <p>
+                E-mail: <input type="email" ng-model="pessoa.email" name="txtEmail" required />
+                <!-- 
+                    vale a pena estudar os possíveis estados do formulário e seus campos, como submitted e touched.  
+                -->
+                <div ng-show="frm.$submitted || frm.txtEmail.$touched">
+                    <div class="errorMsg" ng-show="frm.txtEmail.$error.required">
+                        O campo e-mail deve ser preenchido.
+                    </div>
+                </div>
+
+                <div>
+                    <!-- detalhe também para os possíveis erros dos campos, como required e email (formato de email inválido) -->
+                    <div class="errorMsg" ng-show="frm.txtEmail.$error.email">
+                        Você deve fornecer um e-mail válido.
+                    </div>
+                </div>
+            </p>
+
+            <p>
+                Sexo:
+
+                <input type="radio" value="M" ng-model="pessoa.sexo" /> M
+                <input type="radio" value="F" ng-model="pessoa.sexo"/> F
+            </p>
+
+            <p>
+                Estado: 
+                <select ng-model="pessoa.estado">
+                    <!-- 
+                        na diretiva ng-selected definimos uma expressão booleana
+                        que definirá a opção em que a condição for verdadeira
+                        como selecionada por default. Neste caso, o estado que virá
+                        selecionado como default no select será o estado default definido
+                        no objeto pessoa no controller.
+                    -->
+                    <option ng-repeat="estado in estados" ng-value="estado" ng-bind="estado" ng-selected="estado==pessoa.estado"></option>
+                </select>
+            </p>
+
+            <p>
+                <input type="submit" value="Salvar" />
+            </p>
+        </form>
+
+        <pre>
+            {{pessoa | json}}
+        </pre>
+
+        <pre>
+            {{pessoas | json}}
+        </pre>
+
+        <script src="../js/angular.min.js"></script>
+        <script src="js/app.module.js"></script>
+        <script src="js/aula08Controller.js"></script>
+    </body>
+</html>

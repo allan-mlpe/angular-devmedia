@@ -1,0 +1,20 @@
+/*
+    Define o estilo dos campos que já foram acessados pelo menos uma vez e estão válidos
+*/
+input.ng-valid.ng-touched {
+    background: lightgreen;
+}
+
+/*
+    Define o estilo dos campos que já foram acessados pelo menos uma vez e estão inválidos
+*/
+input.ng-invalid.ng-touched {
+    background: lightcoral;
+}
+
+/*
+    Define o estilo das mensagens de erro
+*/
+div.errorMsg {
+    color: red;
+}
