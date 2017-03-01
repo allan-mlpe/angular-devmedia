@@ -64,3 +64,7 @@ Curso de AngularJS da Devmedia
 - Criando diretivas com .directive.
 - Opções de uso de diretivas.
 - Elementos de diretivas: restrict, template, controller, scope e link.
+
+<h4>Aula 14 - Requisições assíncronas usando $http</h4>
+- O objeto $http.
+- Requisitando recursos com $http.get.
