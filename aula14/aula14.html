@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>Requisições assíncronas com $http</title>
+    </head>
+    <body>
+
+        <div ng-controller="aula14Controller">
+            <button ng-click="carregarDados()">Carregar Dados</button>
+
+            <p ng-repeat="pessoa in dados">
+                {{pessoa.nome}} / {{pessoa.idade}}
+            </p>
+        </div>
+        
+        <script src="../js/angular.min.js"></script>
+        <script src="js/app.module.js"></script>
+        <script src="js/aula14Controller.js"></script>
+    </body>
+</html>
