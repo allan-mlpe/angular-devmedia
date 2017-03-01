@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>Acesso a dados usando $resource</title>
+    </head>
+    <body>
+        <div ng-controller="aula15Controller">
+            <button ng-click="carregaLivros()">Carregar Livros</button>
+            <button ng-click="salvarLivro()">Salvar Livro</button>
+            <button ng-click="getLivro(30)">Carregar Livro: ID 30</button>
+
+        </div>
+        
+        <script src="../js/angular.min.js"></script>
+        <script src="../js/angular-resource.min.js"></script>
+        <script src="js/app.module.js"></script>
+        <script src="js/aula15FactoryLivros.js"></script>
+        <script src="js/aula15Controller.js"></script>
+    </body>
+</html>
