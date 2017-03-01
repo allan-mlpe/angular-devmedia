@@ -59,3 +59,8 @@ Curso de AngularJS da Devmedia
 - ng-class.
 - ng-cloak.
 - ng-src.
+
+<h4>Aula 13 - Criando diretivas customizadas</h4>
+- Criando diretivas com .directive.
+- Opções de uso de diretivas.
+- Elementos de diretivas: restrict, template, controller, scope e link.
