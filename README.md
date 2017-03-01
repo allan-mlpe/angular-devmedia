@@ -68,3 +68,8 @@ Curso de AngularJS da Devmedia
 <h4>Aula 14 - Requisições assíncronas usando $http</h4>
 - O objeto $http.
 - Requisitando recursos com $http.get.
+
+<h4>Aula 15 - Acesso a dados usando $resource</h4>
+- Utilizando uma API com o $resource.
+- Factory e $resource juntos.
+- $resource.get e $resource.save.
