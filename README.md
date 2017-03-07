@@ -73,3 +73,8 @@ Curso de AngularJS da Devmedia
 - Utilizando uma API com o $resource.
 - Factory e $resource juntos.
 - $resource.get e $resource.save.
+
+<h3>Conceitos Avançados</h3>
+<h4>Aula 16 - AngularJS vs jQuery</h4>
+- Utilizando jQuery com o AngularJS.
+- Criando diretivas para usar jQuery e modificar o DOM.
