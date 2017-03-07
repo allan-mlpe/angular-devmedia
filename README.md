@@ -78,3 +78,8 @@ Curso de AngularJS da Devmedia
 <h4>Aula 16 - AngularJS vs jQuery</h4>
 - Utilizando jQuery com o AngularJS.
 - Criando diretivas para usar jQuery e modificar o DOM.
+
+<h4>Aula 17 - Animations</h4>
+- angular-animate.
+- Animando elementos com AngularJS via CSS.
+- ng-enter, ng-enter-active, ng-leave e ng-move.
