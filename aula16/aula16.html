@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>AngularJS vs jQuery</title>
+    </head>
+    <body>
+        <div ng-controller="aula16Controller">
+            <!--
+                Usamos a diretiva tooltip criada para poder manipular
+                o DOM usando o jQuery dentro de um elemento AngularJS
+            -->
+            <span tooltip>
+                Posicione o mouse em cima!
+            </span>
+
+        </div>
+
+        
+        <script src="../js/jquery-3.1.1.min.js"></script>   
+        <script src="../js/angular.min.js"></script>   
+        <script src="../js/tooltipsy.min.js"></script>
+        <script src="js/app.module.js"></script>   
+        <script src="js/aula16Controller.js"></script>   
+        <script src="js/aula16Directive.js"></script>   
+    </body>
+</html>
