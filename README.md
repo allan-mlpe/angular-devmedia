@@ -83,3 +83,9 @@ Curso de AngularJS da Devmedia
 - angular-animate.
 - Animando elementos com AngularJS via CSS.
 - ng-enter, ng-enter-active, ng-leave e ng-move.
+
+<h4>Aula 18 - $location</h4>
+- $locationProvider.html5.
+- Brincando com o $location: protocol, host, port, path, search, hash.
+- Alterando parâmetros passados na URL com o $location.search.
+- Monitorando o estado de variáveis com a função $watch.
