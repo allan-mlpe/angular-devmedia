@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>$location</title>
+    <body>
+        <div ng-controller="aula18Controller" ng-init="oi='oii'">
+            <!-- protocolo usado para acessar a aplicação -->
+            <p>{{ location.protocol() }}</p>
+            
+            <!-- host em que a aplicação está rodando -->
+            <p>{{ location.host() }}</p>
+            
+            <!-- porta do host em que a aplicação está rodando -->
+            <p>{{ location.port() }}</p>
+            
+            <!-- caminho que vem após o nome do host -->
+            <p>{{ location.path() }}</p>
+            
+            <!-- retorna um objeto com os parâmetros passados na URL -->
+            <p>{{ location.search() }}</p>
+            
+            <!-- retorna o valor de uma âncora que está sendo acessada na URL -->
+            <p>{{ location.hash() }}</p>
+
+            <hr/>
+
+            <a href="#" ng-click="setId(01)">Link</a>
+            <a href="#" ng-click="setId(11)">Link</a>
+            <a href="#" ng-click="setId(10)">Link</a>
+            <a href="#" ng-click="setId(51)">Link</a>
+            <a href="#" ng-click="setId(671)">Link</a>
+            <a href="#" ng-click="setId(011911)">Link</a>
+            <a href="#" ng-click="setId(901)">Link</a>
+            <a href="#" ng-click="setId(1914)">Link</a>
+
+            <hr/>
+
+
+            <input type="text" ng-model="oi">
+        
+        </div>
+
+        
+      
+        <script src="../js/angular.min.js"></script>   
+        <script src="js/app.module.js"></script>   
+        <script src="js/aula18Controller.js"></script>    
+        <script src="js/aula18Config.js"></script>    
+    </body>
+</html>
