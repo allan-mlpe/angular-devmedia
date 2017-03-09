@@ -89,3 +89,9 @@ Curso de AngularJS da Devmedia
 - Brincando com o $location: protocol, host, port, path, search, hash.
 - Alterando parâmetros passados na URL com o $location.search.
 - Monitorando o estado de variáveis com a função $watch.
+
+<h4>Aula 19 - ngCookies</h4>
+- Adicionando o angular-cookies.
+- $cookieStore.put.
+- $cookieStore.get.
+- $cookieStore.remove.
