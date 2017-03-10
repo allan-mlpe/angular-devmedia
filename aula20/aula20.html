@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>Plugins</title>
+    <body>
+        <div ng-controller="aula20Controller">
+            <span translate="IDIOMA"> 
+            </span>:
+            <select ng-model="pageLanguage">
+                <option ng-repeat="lang in languages" ng-value="lang.initials" ng-bind="lang.name"></option>
+            </select>
+
+            <hr />
+            <h1 translate="TITULO"></h1>
+            <p translate="PARAGRAFO"></p>
+            <button translate="BTN_OK"></button>
+            <button translate="BTN_CANCEL"></button>
+            
+        </div>
+      
+        <script src="../js/angular.min.js"></script>   
+        <script src="../js/angular-translate.min.js"></script>   
+        <script src="js/app.module.js"></script>   
+        <script src="js/appConfig.js"></script>   
+        <script src="js/aula20Controller.js"></script>    
+    </body>
+</html>
