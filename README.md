@@ -28,6 +28,7 @@ Curso de AngularJS da Devmedia
 - Iterando sobre arrays com ng-repeat.
 
 <h4>Aula 08 - Trabalhando com formulários</h4>
+- Usando select e option com o Angular.
 - ng-selected.
 - ng-show.
 - ng-submit.
@@ -95,3 +96,9 @@ Curso de AngularJS da Devmedia
 - $cookieStore.put.
 - $cookieStore.get.
 - $cookieStore.remove.
+
+<h4>Aula 20 - Plugins</h4>
+- O plugin angular-translate.
+- $translateProvider.translations.
+- $translateProvider.preferredLanguage.
+- $translate.use
