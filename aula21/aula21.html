@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>Upload de Arquivos</title>
+    <body>
+        <div ng-controller="aula21Controller">
+            <!--
+                nv-file-select : diretiva do uploader que indica que o elemento será
+                                 um container para selecionar arquivos   
+
+                uploader : recebe o uploader que será utilizado.
+                            Neste caso, passamos o nome da variável que definimos no controller
+            
+                multiple : permite que nós possamos selecionar vários arquivos de uma vez
+            -->
+
+            <input type="file" nv-file-select uploader="uploader" multiple />
+
+            <hr />
+
+            <ul>
+                <!-- uploader.queue é um array que contém todos os arquivos selecionados -->
+                <li ng-repeat="item in uploader.queue">
+                    <!-- receberá o nome do arquivo selecionado -->
+                    Nome: <span ng-bind="item.file.name"></span>
+                    
+                    <!-- item.upload() : realiza o upload do arquivo para o serviço -->
+                    <button ng-click="item.upload()">Upload</button>
+                </li>
+
+            </ul>
+        </div>
+      
+        <script src="../js/angular.min.js"></script>   
+        <script src="../js/angular-file-upload.min.js"></script>   
+        <script src="js/app.module.js"></script>   
+        <script src="js/aula21Controller.js"></script>    
+    </body>
+</html>
