@@ -102,3 +102,10 @@ Curso de AngularJS da Devmedia
 - $translateProvider.translations.
 - $translateProvider.preferredLanguage.
 - $translate.use
+
+<h4>Aula 21 - Upload de Arquivios</h4>
+- Adicionando o angular-file-upload.
+- Criando um uploader.
+- ng-file-select.
+- item.file.name, item.upload().
+- uploader.filters, uploader.onSuccessItem, uploader.onErrorItem e uploader.onWhenAddingFileFailed.
