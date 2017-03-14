@@ -1,0 +1,7 @@
+/*
+    Estilo para os elementos que serão destacados
+    de acorodo com a string de busca no ui.highlight
+*/
+.ui-match {
+    background: greenyellow;
+}

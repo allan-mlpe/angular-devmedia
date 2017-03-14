@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>ui.highlight e ui.mask</title>
+        <link rel="stylesheet" href="css/aula22.style.css">
+    <body>
+        <div ng-controller="aula22Controller" ng-init="busca='';var1=''">
+
+            <input type="search" ng-model="busca">
+
+            <!-- aplicamos um filtro highlight passando a variável busca -->
+            <div ng-bind-html="texto | highlight:busca"></div>          
+
+            <hr/>
+
+            <!-- 
+                - devemos especificar as máscaras dentro da diretiva ui-mask.
+                - neste exemplo definimos variáveis no controller que correspondem
+                  às máscaras de CPF e telefone.
+                - é obrigatório definir um ng-model para que as máscaras funcionem!!
+             -->
+            <input type="text" ng-model="var1" ui-mask="{{maskCpf}}" />
+            <input type="text" ng-model="var2" ui-mask="{{maskFone}}" />
+
+        </div>
+      
+        <script src="../js/angular.min.js"></script>
+
+        <!-- PARA QUE O UI.HIGHLIGHT FUNCIONAR, É PRECISO ADICIONAR O angular-sanitize -->   
+        <script src="../js/angular-sanitize.min.js"></script>   
+        <script src="../js/ui-utils.min.js"></script>   
+        <!-- ========================================================================== -->
+
+        <script src="js/app.module.js"></script>   
+        <script src="js/aula22Controller.js"></script>    
+    </body>
+</html>
