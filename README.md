@@ -109,3 +109,8 @@ Curso de AngularJS da Devmedia
 - ng-file-select.
 - item.file.name, item.upload().
 - uploader.filters, uploader.onSuccessItem, uploader.onErrorItem e uploader.onWhenAddingFileFailed.
+
+<h4>Aula 22 - AngularUI: ui.highlight e ui.mask</h4>
+- Adicionando o ui-utils.
+- O filtro highlight.
+- A diretiva ui-mask.
