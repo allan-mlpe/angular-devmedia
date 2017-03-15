@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>ui.unique e ui.validate</title>
+    <body>
+        <!-- iniciamos a variável 'campo' vazia. Ela servirá como base para o nosso filtro unique -->
+        <div ng-controller="aula23Controller" ng-init="campo=''">
+
+            <h1>ui.unique</h1>
+
+            <!-- 
+                definimos um valor para a variável campo de acordo com os botões.
+                o valor passado deve ser igual ao nome do atributo que desejamos filtrar! 
+             -->
+            <button ng-click="campo=''">Todos</button>
+            <button ng-click="campo='nome'">Nome</button>
+            <button ng-click="campo='email'">E-mail</button>
+
+            <!--
+                passamos a nossa variável 'campo' para o filtro unique após o foreach
+            -->
+            <p ng-repeat="usuario in usuarios | unique:campo" >
+                {{ usuario.nome }} - {{ usuario.email }}
+            </p>
+
+            <hr/>
+
+            <h1>ui.validate</h1>
+
+
+            <!--
+                ui-validate - Recebe uma função que será executada para validar o campo
+                ui-validate-watch - define uma variável que será monitorada pelo validador
+             -->
+            <form name="formulario">
+                <input type="text" placeholder="Senha" ng-model="senha1" name="senha1" required>
+                <input type="text" placeholder="Confirmar senha" ng-model="senha2" name="senha2" required
+                
+                    ui-validate='"validar($value)"'
+                    ui-validate-watch='"senha1"'
+                
+                >
+                
+                <!-- 
+                    formulario.$valid -> representa o nome do nosso formulário e a
+                                            e se ele está válido, neste caso, se todos
+                                            os campos required estão preenchidos
+                 -->
+                <button ng-disabled="!formulario.$valid">Enviar formulário</button>
+            </form>
+        </div>
+      
+        <script src="../js/angular.min.js"></script>
+        <script src="../js/ui-utils.min.js"></script>   
+        <script src="js/app.module.js"></script>   
+        <script src="js/aula23Controller.js"></script>    
+    </body>
+</html>
