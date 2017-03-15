@@ -114,3 +114,8 @@ Curso de AngularJS da Devmedia
 - Adicionando o ui-utils.
 - O filtro highlight.
 - A diretiva ui-mask.
+
+<h4>Aula 22 - AngularUI: ui.highlight e ui.mask</h4>
+- Aplicando o filtro unique aos nossos arrays.
+- Utilizando o validate: ui-validate e ui-validate-watch.
+- Mais um pouco de validação de formulários.
