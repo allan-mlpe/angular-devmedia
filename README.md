@@ -115,7 +115,11 @@ Curso de AngularJS da Devmedia
 - O filtro highlight.
 - A diretiva ui-mask.
 
-<h4>Aula 22 - AngularUI: ui.highlight e ui.mask</h4>
+<h4>Aula 23 - AngularUI: ui.highlight e ui.mask</h4>
 - Aplicando o filtro unique aos nossos arrays.
 - Utilizando o validate: ui-validate e ui-validate-watch.
 - Mais um pouco de validação de formulários.
+
+<h4>Aula 24 - Google Maps</h4>
+- Adicionando o lodash.js e o angular-google-maps.js.
+- Maps e markers.
