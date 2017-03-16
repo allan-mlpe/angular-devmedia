@@ -194,6 +194,8 @@ Curso de AngularJS da Devmedia
 - Mais um pouco de validação de formulários.
 
 <h4>Aula 24 - Google Maps</h4>
-* Adicionando o lodash.js e o angular-google-maps.js.
-* Maps e markers.
-* ui-gmap-google-map e ui-gmap-marker.
+- Adicionando o lodash.js e o angular-google-maps.js.
+
+- Maps e markers.
+
+- ui-gmap-google-map e ui-gmap-marker.
