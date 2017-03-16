@@ -200,3 +200,11 @@ Curso de AngularJS da Devmedia
 - Maps e markers.
 
 - ui-gmap-google-map e ui-gmap-marker.
+
+<h4>Aula 25 - ui.select</h4>
+
+- Adicionando o select.min.js e o select.min.css.
+
+- ui-select, ui-select-choices e ui-select-match.
+
+- Começando com o Bootstrap.
