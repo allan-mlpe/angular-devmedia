@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>ui.select</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/select.min.css">
+    <body>
+        <div ng-controller="aula25Controller">
+            
+
+            <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>ui.select</h1>
+                    <!-- aplicamos o tema do bootstrap declarado no nosso head ao componente -->
+                        <ui-select ng-model="paisselecionado.selected" theme="bootstrap" reset-search-input="false">
+            
+                        <ui-select-match placeholder="Digite o nome de um país">
+                            {{paisselecionado.selected.name}}
+                        </ui-select-match>
+                        
+                        <!-- ui-select-choices contém os valores do array de países -->
+                        <ui-select-choices repeat="pais in paises | filter : $select.search"> <!-- como estamos dentro de um componente, não podemos usar o ng-repeat do angular -->
+                            {{ pais.name }} / {{ pais.code }}
+                        </ui-select-choices>
+                    
+                        </ui-select>
+                        
+                        
+                        <h3>Você selecionou {{ paisselecionado.selected.name }}</h3>
+                    
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <script src="../js/angular.min.js"></script>
+        <script src="../js/select.min.js"></script>        
+        <script src="js/app.module.js"></script>
+        <script src="js/aula25Controller.js"></script>
+    </body>
+</html>
