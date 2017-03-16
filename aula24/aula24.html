@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Google Maps</title>
+        <link rel="stylesheet" href="css/aula24.style.css">
+    <body>
+        <div ng-controller="aula24Controller">
+            <ui-gmap-google-map center="map.center" zoom="map.zoom">
+                <ui-gmap-marker coords="marker.coords" idkey="marker.id"></ui-gmap-marker>
+            </ui-gmap-google-map>
+        </div>
+        
+        <script src="../js/angular.min.js"></script>
+        <script src="../js/ui-utils.min.js"></script>   
+        
+        <script src="js/aula24Controller.js"></script>    
+
+        <!-- Adicionando dependências essenciais para a API do Google Maps -->
+        <script src="../js/lodash.js"></script>   
+        <script src="../js/angular-google-maps.js"></script>
+        <script src='//maps.googleapis.com/maps/api/js?sensor=false&callback=onGoogleReady'></script>   
+        <!-- ============================================================ -->
+
+    </body>
+</html>

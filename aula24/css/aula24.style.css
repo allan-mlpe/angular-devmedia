@@ -1,0 +1,4 @@
+/* definição da altura do container que ficará o mapa */
+.angular-map-container {
+    height: 400px;
+}
