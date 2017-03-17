@@ -208,3 +208,9 @@ Curso de AngularJS da Devmedia
 - ui-select, ui-select-choices e ui-select-match.
 
 - Começando com o Bootstrap.
+
+<h4>Aula 26 - ui.bootstrap</h4>
+
+- Adicionando o ui-bootstrap.
+
+- accordion e accordion-group.
