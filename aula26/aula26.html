@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>ui.bootstrap</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <body>
+        <div ng-controller="aula26Controller">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h1>Accordion</h1>
+
+                        <!-- web component do ui.bootstrap -->
+                        <accordion>
+                            <!-- 
+                                o atributo heading recebe o título do nosso accordion.
+                                o conteúdo dentro do accordion group é o conteúdo do nosso accordion.
+                             -->
+                            <accordion-group heading="Título do Accordion 1">
+                                <p>Conteúdo do accordion 1</p>
+                            </accordion-group>
+
+                            <accordion-group heading="Título do Accordion 2">
+                                <p>Título do Accordion 2</p>
+                            </accordion-group>
+                        </accordion>
+                        
+                        <hr/>
+                        <h1>Dinamic Accordion</h1>
+                        
+                        <p>
+                            Título do accordion: <input type="text" class="form-control" ng-model="newAccordion.heading">
+                        </p>
+                        <p>
+                            Conteúdo do accordion:
+                        </p>
+                        <textarea class="form-control col-sm-6" cols="40" rows="2" ng-model="newAccordion.content"></textarea>
+                        <p>
+                            <button class="btn btn-primary" ng-click="addAccordion()" ng-disabled="newAccordion.heading === '' || newAccordion.content === ''">Adicionar</button>
+                        </p>
+
+                        <accordion>
+                            <accordion-group ng-repeat="accordion in grupos" heading="{{accordion.heading}}">
+                                {{ accordion.content }}
+                            </accordion-group>
+                        </accordion>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <script src="../js/angular.min.js"></script>
+        <script src="../js/ui-bootstrap-tpls-0.13.0.min.js"></script>
+        <script src="js/app.module.js"></script>
+        <script src="js/aula26Controller.js"></script>
+    </body>
+</html>
