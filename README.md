@@ -214,3 +214,8 @@ Curso de AngularJS da Devmedia
 - Adicionando o ui-bootstrap.
 
 - accordion e accordion-group.
+
+<h3>Projeto Prático</h3>
+<h4>Aula 27 - Modelagem de dados</h4>
+
+- Criando a primeira versão do banco da aplicação.
