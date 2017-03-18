@@ -112,6 +112,10 @@ Curso de AngularJS da Devmedia
 
 - Requisitando recursos com $http.get.
 
+- função .then.
+
+- onSuccessCallback e onErrorCallback.
+
 <h4>Aula 15 - Acesso a dados usando $resource</h4>
 
 - Utilizando uma API com o $resource.
@@ -219,3 +223,11 @@ Curso de AngularJS da Devmedia
 <h4>Aula 27 - Modelagem de dados</h4>
 
 - Criando a primeira versão do banco da aplicação.
+
+<h4>Aula 28 - Sistema de login</h4>
+
+- Utilizando a API PHP para realizar o login.
+
+- $http.post.
+
+- Enviando dados por uma requisição $http.post.
