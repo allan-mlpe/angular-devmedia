@@ -16,6 +16,8 @@
 
 	    <!-- folhas de estilo -->
 	    <link rel="stylesheet" href="../css/bootstrap.min.css">
+	    <link rel="stylesheet" href="../css/loading-bar.min.css">
+	    <link rel="stylesheet" href="../css/jquery.gritter.css">
 	    <link rel="stylesheet" href="../css/style.css">
 
 	</head>
@@ -109,11 +111,46 @@
 				</form>
 			</div>
 	        <!-- fim do form -->
+
+
+			<div class="container">
+				<div class="row mbottom">
+					<div class="col-xs-12">
+						<table class="table table-bordered table-striped table-hover">
+							<thead>
+								<tr>
+									<th width="90px">Data</th>
+									<th>Título</th>
+									<th width="60">Bloquear</th>
+									<th width="120">-</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr ng-repeat="noticia in todasAsNoticias">
+									<td>{{ noticia.datanoticia }}</td>
+									<td>{{ noticia.titulo_noticia }}</td>
+									<td>
+										<button class="btn btn-default">Bloquear</button>
+									</td>
+									<td>
+										<button class="btn btn-default">E</button>
+										<button class="btn btn-danger">X</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 	    </div>
 
 	    <!-- scripts javascript -->
+	    <script src="../js/jquery-3.1.1.min.js"></script>
+	    <script src="../js/jquery.gritter.min.js"></script>
 	    <script src="../js/angular.min.js"></script>
 	    <script src="../js/ui-utils.min.js"></script>
+	    <script src="../js/loading-bar.min.js"></script>
 	    <script src="../js/controller/painelInicialController.js"></script>
 	</body>
 </html>
