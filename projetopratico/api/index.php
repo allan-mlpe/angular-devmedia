@@ -17,7 +17,7 @@ $app->post(
     function () use ($app) {
         
         $data = json_decode($app->request()->getBody());
-        $usuario = (isset($data->login)) ? $data->login : "";
+        $usuario = (isset($data->usuario)) ? $data->usuario : "";
 	    $senha   = (isset($data->senha)) ? $data->senha : "";
         
         if($usuario=="admin" && $senha=="123456"){
@@ -59,6 +59,27 @@ $app->post('/cadastrarNovaNoticia', 'auth', function () use ($app, $db) {
         } else {
             echo json_encode(array("erro"=>true));
         }
+        
+    }
+);
+
+$app->get('/listarNoticias', 'auth', function () use ($app, $db) {
+            
+        $consulta = $db->con()->prepare("SELECT
+                                            id_noticia,
+                                            titulo_noticia,
+                                            descricao_noticia,
+                                            texto_noticia,
+                                            DATE_FORMAT(data_noticia,'%d/%m/%Y') AS datanoticia
+                                        FROM
+                                            noticia
+                                        ORDER BY
+                                            data_noticia DESC,
+                                            titulo_noticia ASC
+                                        ");
+        $consulta->execute();
+        $noticias = $consulta->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode(array("noticias"=>$noticias));
         
     }
 );
