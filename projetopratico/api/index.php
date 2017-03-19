@@ -48,7 +48,7 @@ $app->post('/cadastrarNovaNoticia', 'auth', function () use ($app, $db) {
             $data = NULL; 
         }
         
-        $consulta = $db->con()->prepare('INSERT INTO noticia(noticiatitulo, noticiadescricao, noticiatexto, noticiadata) VALUES (:NOTICIATITULO, :NOTICIADESCRICAO, :NOTICIATEXTO, :NOTICIADATA)');
+        $consulta = $db->con()->prepare('INSERT INTO noticia(titulo_noticia, descricao_noticia, texto_noticia, data_noticia) VALUES (:NOTICIATITULO, :NOTICIADESCRICAO, :NOTICIATEXTO, :NOTICIADATA)');
         $consulta->bindParam(':NOTICIATITULO', $noticiatitulo);
         $consulta->bindParam(':NOTICIADESCRICAO', $noticiadescricao);
         $consulta->bindParam(':NOTICIATEXTO', $noticiatexto);

@@ -59,6 +59,6 @@
     <!-- scripts javascript -->
     <script src="../js/angular.min.js"></script>
     <script src="../js/app.module.js"></script>
-    <script src="../js/loginController.js"></script>
+    <script src="../js/controller/loginController.js"></script>
 </body>
 </html>
