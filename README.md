@@ -231,3 +231,11 @@ Curso de AngularJS da Devmedia
 - $http.post.
 
 - Enviando dados por uma requisição $http.post.
+
+<h4>Aula 29 - Cadastro de notícias</h4>
+
+- Preparando o formulário de cadastro.
+
+- Utilizando máscaras para datas com o ui.mask.
+
+- Cadastrando nova notícia com o $http.post.
