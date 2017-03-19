@@ -239,3 +239,11 @@ Curso de AngularJS da Devmedia
 - Utilizando máscaras para datas com o ui.mask.
 
 - Cadastrando nova notícia com o $http.post.
+
+<h4>Aula 30 - Listagem de notícias</h4>
+
+- Adicionando o jquery-gritter e o angular-loading-bar.
+
+- Criando caixas de mensagem com o $.gritter.add().
+
+- Recuperando as notícias do banco com o $http.get.
