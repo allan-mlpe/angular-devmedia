@@ -255,3 +255,11 @@ Curso de AngularJS da Devmedia
 - Editando e atualizando os dados das notícias.
 
 - Definindo a ação realizada quando da submissão do formulário.
+
+<h4>Aula 32 - Gerenciamento de imagens - Parte 1</h4>
+
+- Adicionando o angular-file-upload.
+
+- Criando um serviço para o upload de imagens com o service do Angular.
+
+- Injetando dependências em um service.
