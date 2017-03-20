@@ -51,7 +51,7 @@
 			<!-- inicio do form -->
 			<div class="container" ng-show="showCadastro">
 
-				<form ng-submit="cadastrarNovaNoticia()">
+				<form ng-submit="formAction()">
 					<!-- título da notícia -->
 					<div class="row mbottom">
 						<div class="col-xs-3 text-right">
@@ -105,7 +105,8 @@
 					<!-- -->
 					<div class="row mbottom">
 						<div class="col-xs-9 col-xs-offset-3">
-							<button type="submit" class="btn btn-danger">Cadastrar</button>
+							<button type="submit" class="btn btn-danger" ng-show="noticia.idnoticia==-1">Cadastrar</button>
+							<button type="submit" class="btn btn-success" ng-show="noticia.idnoticia!=-1">Salvar Alterações</button>
 						</div>
 					</div>
 				</form>
@@ -134,7 +135,7 @@
 										<button class="btn btn-default">Bloquear</button>
 									</td>
 									<td>
-										<button class="btn btn-default">E</button>
+										<button class="btn btn-default" ng-click="getNoticia(noticia.id_noticia)">E</button>
 										<button class="btn btn-danger">X</button>
 									</td>
 								</tr>

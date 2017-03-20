@@ -1,7 +1,7 @@
 app.controller("loginController", function($scope, $http) {
 
 	$scope.user = {
-		login : "",
+		usuario : "",
 		senha : ""
 	};
 

@@ -87,7 +87,7 @@ app.controller('painelInicialController', function($scope, $http) {
 
                 },
 
-                function onErrorCallback() {
+                function onErrorCallback(responseObject) {
                     console.dir(responseObject);
                     $.gritter.add({
                         title : "Ops!",
@@ -99,9 +99,88 @@ app.controller('painelInicialController', function($scope, $http) {
     }
 
     /**
+     * Recupera uma notícia do banco de dados pelo id da notícia
+     */
+    $scope.getNoticia = function(idnoticia) {
+        $http
+            .get("../api/getnoticia/"+idnoticia)
+            .then(
+                function onSuccessCallback(responseObject) {
+                    //associa a notícia retornada à variável da view                    
+                    $scope.noticia = handleData(responseObject.data.noticia);
+
+                    //exibe o formulário de cadastro (já com os dados da noticia retornada)
+                    $scope.showCadastro = true;
+                },
+
+                function onErrorCallback(responseObject) {
+                    console.dir(responseObject);
+                    $.gritter.add({
+                        title : "Ops!",
+                        text : "Falha em obter informações da notícia.",
+                        class_name : "gritter"
+                    });
+                }
+            );
+    };
+
+    $scope.alterarNoticia = function() {
+        $http
+            .post('../api/alterarNoticia/'+$scope.noticia.idnoticia, $scope.noticia)
+            .then(
+                function onSuccessCallback(responseObject) {
+                    var data = responseObject.data;
+
+                    if(!data.erro) { //alteração ok
+                        $.gritter.add({
+                            title : "Tudo certo!",
+                            text : "A notícia foi atualizada com sucesso.",
+                            class_name : "gritter"
+                        });
+
+                        $scope.showCadastro = false; //esconde o form de cadastro
+                        $scope.noticia = objNoticia(); //zera o objeto notícia
+
+                        $scope.listarNoticias();
+
+                    } else {
+                        $.gritter.add({
+                            title : "Ops!",
+                            text : "Não foi possível alterar a notícia.",
+                            class_name : "gritter"
+                        });
+                    }
+                },
+
+                function onErrorCallback(responseObject) {
+                    console.dir(responseObject);
+                    $.gritter.add({
+                        title : "Erro!",
+                        text : "Erro no serviço de atualização.",
+                        class_name : "gritter"
+                    });
+                }
+            );
+
+    }
+
+    /**
+     * Define qual ação será realizada após a submissão do formulário
+     */
+    $scope.formAction = function() {
+        if($scope.noticia.idnoticia == -1) {
+            $scope.cadastrarNovaNoticia();
+        } else {
+            $scope.alterarNoticia();
+        }
+    }
+
+    /**
      * Exibe o cadastro de notícias na view
      */
     $scope.showCadastroForm = function() {
+        //recria o objeto notícia para limpar o form de cadastro
+        $scope.noticia = objNoticia();
         $scope.showCadastro = true;
     };
 
@@ -116,6 +195,21 @@ app.controller('painelInicialController', function($scope, $http) {
             noticiatexto : "",
             noticadata : ""
         };
+    };
+
+    /**
+     * Converte o JSON com as chaves correspondentes do banco de dados
+     * em um objeto noticia válido para a aplicação
+     */
+    function handleData(data) {
+        return {
+
+            idnoticia : data.id_noticia,
+            noticiatitulo : data.titulo_noticia,
+            noticiadescricao : data.descricao_noticia,
+            noticiatexto : data.texto_noticia,
+            noticiadata : data.datanoticia
+        }
     };
 
     $scope.listarNoticias();
