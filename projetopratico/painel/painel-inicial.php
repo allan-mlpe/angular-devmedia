@@ -123,7 +123,7 @@
 									<th width="90px">Data</th>
 									<th>Título</th>
 									<th width="60">Bloquear</th>
-									<th width="120">-</th>
+									<th width="150">-</th>
 								</tr>
 							</thead>
 
@@ -135,6 +135,7 @@
 										<button class="btn btn-default">Bloquear</button>
 									</td>
 									<td>
+										<a href="gerenciarImagens.php?idnoticia={{noticia.id_noticia}}" class="btn btn-danger">I</a>
 										<button class="btn btn-default" ng-click="getNoticia(noticia.id_noticia)">E</button>
 										<button class="btn btn-danger">X</button>
 									</td>
