@@ -247,3 +247,11 @@ Curso de AngularJS da Devmedia
 - Criando caixas de mensagem com o $.gritter.add().
 
 - Recuperando as notícias do banco com o $http.get.
+
+<h4>Aula 31 - Alteração de notícias</h4>
+
+- Recuperando dados de uma notícia do banco.
+
+- Editando e atualizando os dados das notícias.
+
+- Definindo a ação realizada quando da submissão do formulário.
