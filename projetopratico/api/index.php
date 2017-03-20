@@ -84,12 +84,12 @@ $app->post('/alterarNoticia/:idnoticia', 'auth', function ($idnoticia) use ($app
         
         $consulta = $db->con()->prepare('UPDATE noticia 
                                         SET 
-                                            noticiatitulo = :NOTICIATITULO, 
-                                            noticiadescricao = :NOTICIADESCRICAO, 
-                                            noticiatexto = :NOTICIATEXTO, 
-                                            noticiadata = :NOTICIADATA
+                                            titulo_noticia = :NOTICIATITULO, 
+                                            descricao_noticia = :NOTICIADESCRICAO, 
+                                            texto_noticia = :NOTICIATEXTO, 
+                                            data_noticia = :NOTICIADATA
                                         WHERE 
-                                            idnoticia = :IDNOTICIA');
+                                            id_noticia = :IDNOTICIA');
     
         $consulta->bindParam(':NOTICIATITULO', $noticiatitulo);
         $consulta->bindParam(':NOTICIADESCRICAO', $noticiadescricao);
