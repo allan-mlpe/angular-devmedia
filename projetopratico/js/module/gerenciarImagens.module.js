@@ -1,0 +1,1 @@
+var app = angular.module("app", ['ui.mask', 'angular-loading-bar', 'angularFileUpload']);
