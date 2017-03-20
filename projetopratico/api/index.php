@@ -131,18 +131,18 @@ $app->get('/getnoticia/:idnoticia', 'auth', function ($idnoticia) use ($app, $db
         $idnoticia = (int)$idnoticia;
     
         $consulta = $db->con()->prepare("SELECT
-                                            idnoticia,
-                                            noticiatitulo,
-                                            noticiadescricao,
-                                            noticiatexto,
-                                            DATE_FORMAT(noticiadata,'%d/%m/%Y') AS noticiadata
+                                            id_noticia,
+                                            titulo_noticia,
+                                            descricao_noticia,
+                                            texto_noticia,
+                                            DATE_FORMAT(data_noticia,'%d/%m/%Y') AS datanoticia
                                         FROM
                                             noticia
                                         WHERE
-                                            idnoticia = :IDNOTICIA                                            
+                                            id_noticia = :IDNOTICIA                                            
                                         ORDER BY
-                                            noticiadata DESC,
-                                            noticiatitulo ASC
+                                            data_noticia DESC,
+                                            titulo_noticia ASC
                                         ");
         $consulta->bindParam(':IDNOTICIA', $idnoticia);
         $consulta->execute();
