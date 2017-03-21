@@ -14,6 +14,16 @@ app.controller('gerenciarImagensController', function($scope, $http, $location, 
     var idNoticia = $location.search().idnoticia;
 
     /**
+     * Representa o uploader
+     */
+    $scope.uploader = imgUploadService.uploader;
+
+    /**
+     * Lista de imagens já associadas à notícia
+     */
+    $scope.imagens = {};
+
+    /**
      * Recupera uma notícia do banco de dados pelo id da notícia
      */
     $scope.getNoticia = function(idnoticia) {
@@ -39,10 +49,74 @@ app.controller('gerenciarImagensController', function($scope, $http, $location, 
             );
     };
 
+    /**
+     * Recupera a lista de imagens associadas à notícia com id passado por parâmetro
+     */
+    $scope.getImagens = function(idNoticia) {
+        $http
+            .get("../api/listarImagens/"+idNoticia)
+            .then(
+                function onSuccessCallback(responseObject) {
+                    var data = responseObject.data;
+
+                    $scope.imagens = data.imagens;
+                },
+
+                function onErrorCallback(responseObject) {
+                    console.dir(responseObject);
+                    $.gritter.add({
+                        title : "Ops!",
+                        text : "Falha em obter informações da notícia.",
+                        class_name : "gritter"
+                    });
+                }
+
+            );
+
+    };
+
+    /**
+     * Exclui uma imagem associada à notícia com id passado como parâmetro
+     */
+    $scope.excluirImagem = function(idImagem) {
+
+        if(!confirm("Tem certeza que deseja excluir?")) return false;
+
+        $http
+            .get("../api/excluirImagem/"+idImagem)
+            .then(
+                function onSuccessCallback(responseObject) {
+                    var data = responseObject.data;
+
+                    $scope.imagens = data.imagens;
+
+                    //chamamos a função para obter a lista de imagens associadas à notícia com id passado como parâmetro
+                    $scope.getImagens(idNoticia);
+                },
+
+                function onErrorCallback(responseObject) {
+                    console.dir(responseObject);
+                    $.gritter.add({
+                        title : "Ops!",
+                        text : "Falha em obter informações da notícia.",
+                        class_name : "gritter"
+                    });
+                }
+
+            );
+
+    };
+
+    /*
+     * Enviando a função getImagens para ser chamada como callback no service
+     */
+    $scope.uploader.setCallback($scope.getImagens);
+
     //chamamos a função para obter os dados da notícia com id passado como parâmetro
     $scope.getNoticia(idNoticia);
 
-    $scope.uploader = imgUploadService.uploader;
+    //chamamos a função para obter a lista de imagens associadas à notícia com id passado como parâmetro
+    $scope.getImagens(idNoticia);
 
 
     /**

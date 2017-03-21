@@ -66,8 +66,7 @@
 
                         <ul>
                             <li ng-repeat="item in uploader.queue">
-                                Nome: <span ng-bind="item.file.name"></span>
-                                
+                                Nome: <span ng-bind="item.file.name"></span>                                
                                 <button ng-click="item.upload()">Upload</button>
                             </li>
 
@@ -80,6 +79,19 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <h3>Imagens Cadastradas</h3>
+                    </div>
+                </div>
+
+                <div class="row" ng-show="imagens.length==0">
+                    <div class="col-xs-12">
+                        <h5>Nenhuma imagem cadastrada</h5>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-3" ng-repeat="imagem in imagens">
+                        <img width="262px" class="img-responsive" ng-src="../upload/{{ imagem.arquivo_imagem }}" alt="{{ imagem.titulo_imagem }}">
+                        <button class="btn btn-danger btn-block" ng-click="excluirImagem(imagem.id_imagem)">Excluir</button>
                     </div>
                 </div>
             </div>

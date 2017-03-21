@@ -20,11 +20,23 @@ app.service('imgUploadService', function($location, FileUploader) {
     });
 
     /**
+     * Executa uma ação antes do upload do item
+     */
+    uploader.onBeforeUploadItem = function(fileItem) {
+        
+        //adicionando um objeto com a chave imagemtitulo
+        fileItem.formData.push({
+            imagemtitulo : fileItem._file.name
+        });
+    };
+
+    /**
      * Executa uma ação quando o arquivo é enviado com sucesso
      */
     uploader.onSuccessItem = function(fileItem) {
         console.log("Item enviado com sucesso!");
         fileItem.remove(); //remove o arquivo da fila quando o upload é feito
+        uploader.runCallback();
     };
 
     /**
@@ -40,5 +52,20 @@ app.service('imgUploadService', function($location, FileUploader) {
     uploader.onWhenAddingFileFailed = function(fileItem) {
         console.log("Erro ao adicionar elemento. O limite de arquivos é 4.");
     };
+
+    /**
+     * Executa uma função de callback recebida do controller após o upload do item
+     */
+    uploader.runCallback = function() {
+        if(!uploader.callback) return;
+        uploader.callback(idNoticia);
+    };
+
+    /**
+     * Define uma função de callback personalizada para ser executada após o upload do item
+     */
+    uploader.setCallback = function(callback) {
+        uploader.callback = callback;
+    }
 
 });

@@ -155,7 +155,7 @@ $app->get('/getnoticia/:idnoticia', 'auth', function ($idnoticia) use ($app, $db
 $app->post('/cadastrarImagem/:idnoticia', 'auth', function ($idnoticia) use ($app, $db) {
         
         if ( !empty( $_FILES ) ) {
-            $imagemtitulo = "";
+            $imagemtitulo = $_POST['imagemtitulo'];
             $imagemarquivo = $idnoticia."_".uniqid()."_".$_FILES[ 'file' ][ 'name' ];
             $idnoticia = (int)$idnoticia;
             
@@ -178,6 +178,55 @@ $app->post('/cadastrarImagem/:idnoticia', 'auth', function ($idnoticia) use ($ap
         } else {
             echo json_encode(array("erro"=>true));
         }
+        
+    }
+);
+
+$app->get('/listarImagens/:idnoticia', 'auth', function ($idnoticia) use ($app, $db) {
+        
+        $idnoticia = (int)$idnoticia;
+    
+        $consulta = $db->con()->prepare("SELECT
+                                            id_imagem,
+                                            titulo_imagem,
+                                            arquivo_imagem
+                                        FROM
+                                            imagem
+                                        WHERE
+                                            id_noticia = :IDNOTICIA                                        
+                                        ");
+        $consulta->bindParam(':IDNOTICIA', $idnoticia);
+        $consulta->execute();
+    
+        $imagens = $consulta->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode(array("imagens"=>$imagens));
+        
+    }
+);
+
+$app->get('/excluirImagem/:idimagem', 'auth', function ($idimagem) use ($app, $db) {
+        
+        $idimagem = (int)$idimagem;
+    
+        $consulta = $db->con()->prepare("SELECT
+                                            arquivo_imagem
+                                        FROM
+                                            imagem
+                                        WHERE
+                                            id_imagem = :IDIMAGEM                                        
+                                        ");
+        $consulta->bindParam(':IDIMAGEM', $idimagem);
+        $consulta->execute();
+    
+        $imagem = $consulta->fetchAll(PDO::FETCH_ASSOC)[0];
+    
+        @unlink("../upload/".$imagem['imagemarquivo']);
+    
+        $consulta = $db->con()->prepare("DELETE FROM imagem WHERE id_imagem = :IDIMAGEM");
+        $consulta->bindParam(':IDIMAGEM', $idimagem);
+        $consulta->execute();
+    
+        echo json_encode(array("erro"=>false));
         
     }
 );
