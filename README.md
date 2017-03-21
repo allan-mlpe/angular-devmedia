@@ -263,3 +263,11 @@ Curso de AngularJS da Devmedia
 - Criando um serviço para o upload de imagens com o service do Angular.
 
 - Injetando dependências em um service.
+
+<h4>Aula 33 - Gerenciamento de imagens - Parte 2</h4>
+
+- Listando as imagens cadastradas em uma notícia.
+
+- Excluindo as imagens já cadastradas.
+
+- Passando uma função do controller como callback para o service.
