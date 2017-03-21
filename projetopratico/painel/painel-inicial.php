@@ -42,6 +42,7 @@
 					<div class="col-xs-12">
 						<div class="well well-sm">
 							<button class="btn btn-primary" ng-click="showCadastroForm()">Cadastrar Notícia</button>
+							<a href="../api/logout" class="btn btn-danger pull-right" onclick="return confirm('Deseja mesmo sair?')">Logout</a>
 						</div>
 					</div>
 				
