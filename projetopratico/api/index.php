@@ -32,6 +32,15 @@ $app->post(
     }
 );
 
+$app->get(
+    '/logout',
+    function () use ($app) {
+        session_destroy();
+        header("Location: ../painel/index.php");
+        exit;
+    }
+);
+
 $app->post('/cadastrarNovaNoticia', 'auth', function () use ($app, $db) {
         
         $data = json_decode($app->request()->getBody());
