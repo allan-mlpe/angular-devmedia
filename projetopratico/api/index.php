@@ -161,6 +161,67 @@ $app->get('/getnoticia/:idnoticia', 'auth', function ($idnoticia) use ($app, $db
     }
 );
 
+$app->get('/trocastatus/:idnoticia/:novostatus', 'auth', function ($idnoticia, $novostatus) use ($app, $db) {       
+    
+        $idnoticia = (int)$idnoticia;
+        $novostatus = (int)$novostatus;
+        
+        $consulta = $db->con()->prepare('UPDATE noticia 
+                                        SET 
+                                            status_noticia = :NOTICIASTATUS
+                                        WHERE 
+                                            id_noticia = :IDNOTICIA');
+    
+        $consulta->bindParam(':NOTICIASTATUS', $novostatus);
+        $consulta->bindParam(':IDNOTICIA', $idnoticia);
+    
+        if($consulta->execute()){
+            echo json_encode(array("erro"=>false));
+        } else {
+            echo json_encode(array("erro"=>true));
+        }
+        
+    }
+);
+
+$app->get('/excluirNoticia/:idnoticia', 'auth', function ($idnoticia) use ($app, $db) {       
+    
+        $idnoticia = (int)$idnoticia;
+        
+        // excluir as imagens
+        $consulta = $db->con()->prepare("SELECT
+                                            arquivo_imagem
+                                        FROM
+                                            imagem
+                                        WHERE
+                                            id_noticia = :IDNOTICIA                                        
+                                        ");
+        $consulta->bindParam(':IDNOTICIA', $idnoticia);
+        $consulta->execute();
+    
+        $imagens = $consulta->fetchAll(PDO::FETCH_ASSOC);
+        
+        foreach($imagens as $img){
+            @unlink('../upload/'.$img['imagemarquivo']);   
+        }
+    
+        // excluir a notícia
+        $consulta = $db->con()->prepare("DELETE FROM imagem WHERE noticia_idnoticia = :IDNOTICIA");
+        $consulta->bindParam(':IDNOTICIA', $idnoticia);
+        $consulta->execute();
+    
+        $consulta = $db->con()->prepare("DELETE FROM noticia WHERE idnoticia = :IDNOTICIA");
+        $consulta->bindParam(':IDNOTICIA', $idnoticia);        
+    
+        if($consulta->execute()){
+            echo json_encode(array("erro"=>false));
+        } else {
+            echo json_encode(array("erro"=>true));
+        }
+        
+    }
+);
+
 $app->post('/cadastrarImagem/:idnoticia', 'auth', function ($idnoticia) use ($app, $db) {
         
         if ( !empty( $_FILES ) ) {
