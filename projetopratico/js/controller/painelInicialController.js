@@ -146,7 +146,46 @@ app.controller('painelInicialController', function($scope, $http) {
                     console.dir(responseObject);
                     $.gritter.add({
                         title : "Ops!",
-                        text : "Falha em obter informações da notícia.",
+                        text : "Falha na troca de status da notícia.",
+                        class_name : "gritter"
+                    });
+                }
+            );
+    };
+   
+    /**
+     * Exclui uma notícia
+     */
+    $scope.excluirNoticia = function(idNoticia) {
+        console.log(idNoticia);
+
+        /*
+            por questões de acessibilidade, vamos pedir uma confirmação
+            do usuário acerca da exclusão da notícia.        
+        */
+        if(!confirm("Tem certeza que deseja excluir esta notícia?")) return;
+
+        $http
+            .get("../api/excluirNoticia/"+idNoticia)
+            .then(
+                function onSuccessCallback(responseObject) {
+                   console.log(responseObject.data);
+                   
+                   //após excluída a notícia, chamamos a função listar para atualizar a lista de notícias
+                   $scope.listarNoticias();
+
+                   $.gritter.add({
+                        title : "Tudo certo!",
+                        text : "Notícia excluída com sucesso.",
+                        class_name : "gritter"
+                    });
+                },
+
+                function onErrorCallback(responseObject) {
+                    console.dir(responseObject);
+                    $.gritter.add({
+                        title : "Ops!",
+                        text : "Falha na exclusão da notícia.",
                         class_name : "gritter"
                     });
                 }

@@ -114,11 +114,11 @@
 			</div>
 	        <!-- fim do form -->
 
-
+			<!-- lista de notícias -->
 			<div class="container">
 				<div class="row mbottom">
 					<div class="col-xs-12">
-						<table class="table table-bordered table-striped table-hover">
+						<table class="table table-bordered table-striped table-hover" ng-show="todasAsNoticias.length>0">
 							<thead>
 								<tr>
 									<th width="90px">Data</th>
@@ -143,13 +143,19 @@
 									<td>
 										<a href="gerenciarImagens.php?idnoticia={{noticia.id_noticia}}" class="btn btn-primary" title="Gerenciar imagens"><i class="glyphicon glyphicon-picture"></i></a>
 										<button class="btn btn-warning" ng-click="getNoticia(noticia.id_noticia)" title="Editar notícia"><i class="glyphicon glyphicon-pencil"></i></button>
-										<button class="btn btn-danger" title="Excluir notícia"><i class="glyphicon glyphicon-trash"></i></button>
+										<button class="btn btn-danger" title="Excluir notícia" ng-click="excluirNoticia(noticia.id_noticia)"><i class="glyphicon glyphicon-trash"></i></button>
 									</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
 				</div>
+
+				<div class="row" ng-show="todasAsNoticias.length==0">
+                    <div class="col-xs-12">
+                        <h5>Nenhuma notícia cadastrada</h5>
+                    </div>
+                </div>
 			</div>
 	    </div>
 
