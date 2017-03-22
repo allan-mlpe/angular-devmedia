@@ -207,11 +207,11 @@ $app->get('/excluirNoticia/:idnoticia', 'auth', function ($idnoticia) use ($app,
         }
     
         // excluir a notícia
-        $consulta = $db->con()->prepare("DELETE FROM imagem WHERE noticia_idnoticia = :IDNOTICIA");
+        $consulta = $db->con()->prepare("DELETE FROM imagem WHERE id_noticia = :IDNOTICIA");
         $consulta->bindParam(':IDNOTICIA', $idnoticia);
         $consulta->execute();
     
-        $consulta = $db->con()->prepare("DELETE FROM noticia WHERE idnoticia = :IDNOTICIA");
+        $consulta = $db->con()->prepare("DELETE FROM noticia WHERE id_noticia = :IDNOTICIA");
         $consulta->bindParam(':IDNOTICIA', $idnoticia);        
     
         if($consulta->execute()){
