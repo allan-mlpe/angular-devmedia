@@ -122,6 +122,7 @@ $app->get('/listarNoticias', 'auth', function () use ($app, $db) {
                                             titulo_noticia,
                                             descricao_noticia,
                                             texto_noticia,
+                                            status_noticia,
                                             DATE_FORMAT(data_noticia,'%d/%m/%Y') AS datanoticia
                                         FROM
                                             noticia
