@@ -123,7 +123,7 @@
 								<tr>
 									<th width="90px">Data</th>
 									<th>Título</th>
-									<th width="60">Bloquear</th>
+									<th width="60">Status</th>
 									<th width="150">-</th>
 								</tr>
 							</thead>
@@ -133,12 +133,17 @@
 									<td>{{ noticia.datanoticia }}</td>
 									<td>{{ noticia.titulo_noticia }}</td>
 									<td>
-										<button class="btn btn-default">Bloquear</button>
+										<button class="btn btn-danger" title="Notícia bloqueada. Clique para ativar." ng-show="!noticia.status_noticia" ng-click="trocaStatus(noticia, 1)">
+											<i class="glyphicon glyphicon-eye-close"></i>
+										</button>
+										<button class="btn btn-success" title="Notícia ativa. Clique para bloquear." ng-show="noticia.status_noticia" ng-click="trocaStatus(noticia, 0)">
+											<i class="glyphicon glyphicon-eye-open"></i>
+										</button>
 									</td>
 									<td>
-										<a href="gerenciarImagens.php?idnoticia={{noticia.id_noticia}}" class="btn btn-danger">I</a>
-										<button class="btn btn-default" ng-click="getNoticia(noticia.id_noticia)">E</button>
-										<button class="btn btn-danger">X</button>
+										<a href="gerenciarImagens.php?idnoticia={{noticia.id_noticia}}" class="btn btn-primary" title="Gerenciar imagens"><i class="glyphicon glyphicon-picture"></i></a>
+										<button class="btn btn-warning" ng-click="getNoticia(noticia.id_noticia)" title="Editar notícia"><i class="glyphicon glyphicon-pencil"></i></button>
+										<button class="btn btn-danger" title="Excluir notícia"><i class="glyphicon glyphicon-trash"></i></button>
 									</td>
 								</tr>
 							</tbody>

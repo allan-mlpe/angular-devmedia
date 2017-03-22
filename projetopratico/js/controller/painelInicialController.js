@@ -124,6 +124,35 @@ app.controller('painelInicialController', function($scope, $http) {
             );
     };
 
+    /**
+     * Altera o status de uma notícia
+     */
+    $scope.trocaStatus = function(noticia, novoStatus) {
+        $http
+            .get("../api/trocastatus/"+noticia.id_noticia+"/"+novoStatus)
+            .then(
+                function onSuccessCallback(responseObject) {
+                   console.log(responseObject.data);
+
+                   /*
+                        Vamos apenas alterar a variável notícia 
+                        para evitar fazer uma nova requisição ao
+                        serviço ou então fazer um reload na página
+                   */
+                   noticia.status_noticia = novoStatus;
+                },
+
+                function onErrorCallback(responseObject) {
+                    console.dir(responseObject);
+                    $.gritter.add({
+                        title : "Ops!",
+                        text : "Falha em obter informações da notícia.",
+                        class_name : "gritter"
+                    });
+                }
+            );
+    };
+
     $scope.alterarNoticia = function() {
         $http
             .post('../api/alterarNoticia/'+$scope.noticia.idnoticia, $scope.noticia)
