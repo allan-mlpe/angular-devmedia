@@ -203,7 +203,7 @@ $app->get('/excluirNoticia/:idnoticia', 'auth', function ($idnoticia) use ($app,
         $imagens = $consulta->fetchAll(PDO::FETCH_ASSOC);
         
         foreach($imagens as $img){
-            @unlink('../upload/'.$img['imagemarquivo']);   
+            @unlink('../upload/'.$img['arquivo_imagem']);   
         }
     
         // excluir a notícia
@@ -291,7 +291,7 @@ $app->get('/excluirImagem/:idimagem', 'auth', function ($idimagem) use ($app, $d
     
         $imagem = $consulta->fetchAll(PDO::FETCH_ASSOC)[0];
     
-        @unlink("../upload/".$imagem['imagemarquivo']);
+        @unlink("../upload/".$imagem['arquivo_imagem']);
     
         $consulta = $db->con()->prepare("DELETE FROM imagem WHERE id_imagem = :IDIMAGEM");
         $consulta->bindParam(':IDIMAGEM', $idimagem);
