@@ -271,3 +271,11 @@ Curso de AngularJS da Devmedia
 - Excluindo as imagens já cadastradas.
 
 - Passando uma função do controller como callback para o service.
+
+<h4>Aula 34 - Ajustes finais no back-end</h4>
+
+- Implementando a troca de status de uma notícia.
+
+- Estratégia de atualização da view para evitar novas requisições ou reload da página.
+
+- Excluindo notícias e as imagens associadas as mesmas.
