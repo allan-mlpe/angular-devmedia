@@ -20,6 +20,17 @@ app.service('imgUploadService', function($location, FileUploader) {
     });
 
     /**
+     * Filtro para permitir o upload apenas de arquivos de imagem
+     */
+    uploader.filters.push({
+            name: 'imageFilter',
+            fn: function(item /*{File|FileLikeObject}*/, options) {
+                var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+                return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+            }
+        });
+
+    /**
      * Executa uma ação antes do upload do item
      */
     uploader.onBeforeUploadItem = function(fileItem) {
@@ -50,7 +61,7 @@ app.service('imgUploadService', function($location, FileUploader) {
      * Executa um ação quando ocorre erro ao selecionar os arquivos. 
      */
     uploader.onWhenAddingFileFailed = function(fileItem) {
-        console.log("Erro ao adicionar elemento. O limite de arquivos é 4.");
+        alert("Somente arquivos de imagem são permitidos.");
     };
 
     /**
