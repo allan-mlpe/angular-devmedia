@@ -12,6 +12,63 @@ session_start();
 
 header("Content-Type: application/json");
 
+$app->get('/getNoticiaFrontend(/:idnoticia)', function ($idnoticia = NULL) use ($app, $db) {
+    
+        if($idnoticia==NULL){
+            $where = "";
+            $limit = " LIMIT 8 ";
+        } else {
+            $where = sprintf(' AND id_noticia = %s ', $idnoticia);   
+            $limit = "";
+        }
+    
+        
+ $consulta = $db->con()->prepare("SELECT
+                                            id_noticia,
+                                            titulo_noticia,
+                                            descricao_noticia,
+                                            texto_noticia,
+                                            status_noticia,
+                                            DATE_FORMAT(data_noticia,'%d/%m/%Y') AS datanoticia
+                                        FROM
+                                            noticia
+                                        WHERE
+                                            status_noticia=1
+                                        ORDER BY
+                                            data_noticia DESC,
+                                            titulo_noticia ASC
+                                        ".$limit);
+
+        $consulta->execute();
+        $noticias = $consulta->fetchAll(PDO::FETCH_ASSOC);
+    
+        $noticias_array = array();
+        $cont = 0;
+        
+        foreach($noticias as $not){
+            
+            $noticias_array[$cont]['noticia']['dados'] = $not;
+            
+            $consulta = $db->con()->prepare("SELECT
+                                                id_imagem,
+                                                titulo_imagem,
+                                                arquivo_imagem
+                                            FROM
+                                                imagem
+                                            WHERE
+                                                id_noticia = :IDNOTICIA
+                                            ");
+            $consulta->bindParam(':IDNOTICIA', $not['id_noticia']);
+            $consulta->execute();
+            $noticias_array[$cont]['noticia']['imagens'] = $consulta->fetchAll(PDO::FETCH_ASSOC);
+            $cont++;
+        }
+    
+        echo json_encode(array("noticias"=>$noticias_array));
+        
+    }
+);
+
 $app->post(
     '/login',
     function () use ($app) {
