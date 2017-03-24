@@ -279,3 +279,9 @@ Curso de AngularJS da Devmedia
 - Estratégia de atualização da view para evitar novas requisições ou reload da página.
 
 - Excluindo notícias e as imagens associadas as mesmas.
+
+<h4>Aula 35 - Listando as notícias no front-end</h4>
+
+- Criando a página inicial de exibição de notícias.
+
+- Listando as notícias e suas imagens.
