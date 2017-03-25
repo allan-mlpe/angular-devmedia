@@ -34,6 +34,7 @@ $app->get('/getNoticiaFrontend(/:idnoticia)', function ($idnoticia = NULL) use (
                                             noticia
                                         WHERE
                                             status_noticia=1
+                                             ".$where."
                                         ORDER BY
                                             data_noticia DESC,
                                             titulo_noticia ASC
