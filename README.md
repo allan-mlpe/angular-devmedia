@@ -282,6 +282,14 @@ Curso de AngularJS da Devmedia
 
 <h4>Aula 35 - Listando as notícias no front-end</h4>
 
-- Criando a página inicial de exibição de notícias.
+- Criando a página inicial de listagem de notícias.
 
 - Listando as notícias e suas imagens.
+
+<h4>Aula 36 - Listando as notícias no front-end</h4>
+
+- Criando a página de exibição de notícia.
+
+- Tratando o retorno da API com o nl2br e injetando como HTML com o angular-sanitize.
+
+- Utilizando o modal do bootstrap para exibir imagens das notícias.
