@@ -49,6 +49,9 @@ $app->get('/getNoticiaFrontend(/:idnoticia)', function ($idnoticia = NULL) use (
         foreach($noticias as $not){
             
             $noticias_array[$cont]['noticia']['dados'] = $not;
+
+            $noticias_array[$cont]['noticia']['dados']['texto_noticia'] = nl2br($noticias_array[$cont]['noticia']['dados']['texto_noticia']);
+
             
             $consulta = $db->con()->prepare("SELECT
                                                 id_imagem,
