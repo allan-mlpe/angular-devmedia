@@ -29,7 +29,7 @@
                     
                     <div class="media" ng-repeat="obj in noticias">
                         <div class="media-left">
-                            <a href="#">
+                            <a href="verNoticia.php?id={{obj.noticia.dados.id_noticia}}">
                             <img width="60px" class="media-object" ng-src="upload/{{obj.noticia.imagens[0].arquivo_imagem}}" alt="{{obj.noticia.dados.titulo_noticia}}">
                             </a>
                         </div>
