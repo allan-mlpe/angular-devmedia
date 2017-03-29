@@ -293,3 +293,9 @@ Curso de AngularJS da Devmedia
 - Tratando o retorno da API com o nl2br e injetando como HTML com o angular-sanitize.
 
 - Utilizando o modal do bootstrap para exibir imagens das notícias.
+
+<h4>Aula 37 - Introdução ao NodeJS</h4>
+
+- Instalação do NodeJS.
+
+- Criando uma rota com o app.get no servidor usando o Node.
