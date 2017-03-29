@@ -37,11 +37,51 @@
 
 	    <div ng-controller="painelInicialController">
 
+
+			<div class="container" ng-show="chatUsuarios.length>0">
+				<div class="row">
+					<div class="col-xs-12">
+						<h2>Atendimentos</h2>
+
+						<div class="col-xs-12">
+							<div class="alert alert-info" style="height:350px; overflow:scroll; overflow-x:hidden;" id="mostra_mensagens">
+								<div class="well well-sm" ng-repeat="msg in chatUsuarios[usuarioAtivo].mensagens">
+									<p>De : {{ msg.de }}</p>
+									<p>Msg : {{ msg.msg }}</p>
+								</div>
+							</div>
+						</div>
+
+						<hr/>
+
+						<div class="col-xs-12">
+							<a href="#" class="btn btn-primary" ng-repeat="(key, u) in chatUsuarios" ng-click="setUsuarioAtivo(key)">
+								{{ u.usuario }}
+							</a>
+						</div>
+
+						<div class="col-xs-10">
+							<input class="form-control" type="text" placeholder="Mensagem..." ng-model="novaMensagem" ng-keyup="$event.keyCode == 13 ? enviarMensagem() : null">
+
+						</div>
+						<div class="col-xs-2">
+							<button class="btn btn-primary btn-block" ng-click="enviarMensagem()" ng-disabled="novaMensagem==''">
+								Enviar
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr/>
+
+
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="well well-sm">
 							<button class="btn btn-primary" ng-click="showCadastroForm()">Cadastrar Notícia</button>
+							<button class="btn btn-success" ng-hide="chat!=true" ng-click="chatStatus()">Chat online</button>
+							<button class="btn btn-danger" ng-show="chat==false" ng-click="chatStatus()">Chat offline</button>
 							<a href="../api/logout" class="btn btn-danger pull-right" onclick="return confirm('Deseja mesmo sair?')">Logout</a>
 						</div>
 					</div>
@@ -163,6 +203,8 @@
 	    <script src="../js/jquery-3.1.1.min.js"></script>
 	    <script src="../js/jquery.gritter.min.js"></script>
 	    <script src="../js/angular.min.js"></script>
+		<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+		<script src="../js/ng-socket-io.js"></script>
 	    <script src="../js/ui-utils.min.js"></script>
 	    <script src="../js/loading-bar.min.js"></script>
 	    <script src="../js/controller/painelInicialController.js"></script>

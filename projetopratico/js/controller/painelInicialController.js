@@ -1,6 +1,6 @@
-var app = angular.module("app", ['ui.mask', 'angular-loading-bar']);
+var app = angular.module("app", ['ui.mask', 'angular-loading-bar', 'socket-io']);
 
-app.controller('painelInicialController', function($scope, $http) {
+app.controller('painelInicialController', function($scope, $http, socket) {
     
     /**
      * Exibição do formulário de cadastro de notícia
@@ -282,4 +282,103 @@ app.controller('painelInicialController', function($scope, $http) {
 
     $scope.listarNoticias();
 
+
+    //======================= CHAT ============================
+     /**
+     * Contém os usuários que estão conectados ao chat
+     */
+    $scope.chatUsuarios = [];
+
+    /**
+     * Representa uma nova mensagem que chega ao chat
+     */
+    $scope.novaMensagem = '';
+
+    /**
+     * Representa o índice do usuário que está ativo em um dado momento
+     */
+    $scope.usuarioAtivo = 0;
+
+    /**
+     * Indica o status atual do chat online/offline
+     */
+    $scope.chat = false;
+
+    /**
+     * Senha default para o usuário
+     */
+    $scope.senha = "123456";
+
+    //realiza login do administrador no chat
+    socket.emit('adminlogin', $scope.senha);
+
+    /**
+     * Define o status do chat para online/offline
+     */
+    $scope.chatStatus = function() {
+        socket.emit('setChatStatus', $scope.senha);
+    }
+
+    socket.on('chatstatus', function(data) {
+        $scope.chat = data.online;
+    });
+
+    /**
+     * Ação a ser executada assim que um usuário entra no chat
+     */
+    socket.on('usuarioentrou', function(email) {
+        $scope.chatUsuarios.push({ usuario : email, mensagens : [] });
+
+        if($scope.chatUsuarios.length == 1) {
+            $scope.usuarioAtivo = 0;
+        }
+    });
+
+    socket.on('novamensagemparaadmin', function(mensagem) {
+        var ind = $scope.buscaUsuario(mensagem.de);
+        $scope.chatUsuarios[ind].mensagens.push({
+            de : mensagem.de,
+            msg : mensagem.msg
+        });
+    });
+
+    $scope.buscaUsuario = function(usuario) {
+        var status = false;
+        var cont = 0;
+
+        while(cont < $scope.chatUsuarios.length) {
+            if($scope.chatUsuarios[cont].usuario == usuario) {
+                return cont;
+            }
+            cont++;
+        }
+
+        return false;
+    };
+
+    $scope.setaUsuarioAtivo = function(ind) {
+        $scope.usuarioAtivo = ind;
+    };
+
+    $scope.scrollDown = function() {
+        setTimeout(function() {
+            $("#mostra_mensagens").scrollTop(1E10);
+        }, 800);
+    };
+
+    $scope.enviarMensagem = function() {
+        
+        $scope.chatUsuarios[$scope.usuarioAtivo].mensagens.push({
+            de : "Admin",
+            msg : $scope.novaMensagem
+        });
+
+        socket.emit('enviarmensagemparausuario', {
+            para : $scope.chatUsuarios[$scope.usuarioAtivo].usuario,
+            msg : $scope.novaMensagem
+        });
+        
+        $scope.novaMensagem = '';
+        $scope.scrollDown();
+    };
 });
