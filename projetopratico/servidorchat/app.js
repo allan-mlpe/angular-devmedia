@@ -10,6 +10,12 @@ var senha = "123456";
 
 server.listen(3000);
 
+app.get('/', function(req, resp) {
+    resp.sendfile(__dirname + '/publico/index.html');
+});
+
+console.log("Servidor rodando...");
+
 io.sockets.on("connection", function(socket){
     
     socket.emit('chatstatus', { online : chatstatus });
