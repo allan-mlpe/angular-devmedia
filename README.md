@@ -299,3 +299,11 @@ Curso de AngularJS da Devmedia
 - Instalação do NodeJS.
 
 - Criando uma rota com o app.get no servidor usando o Node.
+
+<h4>Aula 38 - Área de atendimento ao cliente</h4>
+
+- Implementando a lógica do chat no lado do administrador.
+
+- socket.emit.
+
+- Utilizando o ng-keyup.
