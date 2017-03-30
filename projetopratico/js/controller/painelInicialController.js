@@ -334,6 +334,22 @@ app.controller('painelInicialController', function($scope, $http, socket) {
         }
     });
 
+    socket.on('usuariosaiu', function(usuario){
+        var ind = $scope.buscaUsuario(usuario);
+        
+        console.log('Usuário saiu');
+        console.log($scope.chatUsuarios[ind]);
+        
+        $.gritter.add({
+                        title : "Usuário saiu",
+                        text : $scope.chatUsuarios[ind].usuario+" saiu",
+                        class_name : "gritter"
+                    });
+        
+        $scope.chatUsuarios.splice(ind, 1);
+        $scope.usuarioAtivo = 0;
+    });
+
     socket.on('novamensagemparaadmin', function(mensagem) {
         var ind = $scope.buscaUsuario(mensagem.de);
         $scope.chatUsuarios[ind].mensagens.push({
