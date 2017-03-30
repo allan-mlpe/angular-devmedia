@@ -307,3 +307,7 @@ Curso de AngularJS da Devmedia
 - socket.emit.
 
 - Utilizando o ng-keyup.
+
+<h4>Aula 39 - Atendimento online</h4>
+
+- Implementando a lógica do chat no lado do cliente.
